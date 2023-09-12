@@ -1,28 +1,33 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="欢迎来到vue.js"/>
+  <div class="App">
+    <div class="box" @click="fn">vue.js app</div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+export default{
+  created(){
+    console.log('I am created')
+  },
+  methods:{
+    fn(){
+      alert('hello')
+    }
   }
+
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="less">
+.App{
+  width: 400px;
+  height: 400px;
+  background-color: pink;
+  .box{
+  width: 200px;
+  height: 200px;
+  background-color: aquamarine;
 }
+}
+
 </style>
