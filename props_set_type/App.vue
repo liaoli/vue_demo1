@@ -9,7 +9,7 @@ import BaseProgress from './components/BaseProgress.vue'
 export default {
   data() {
     return {
-      width: 30,
+      width: 50,
     }
   },
   components: {
