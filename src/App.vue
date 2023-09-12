@@ -1,21 +1,34 @@
 <template>
   <div class="app">
-    <baseCount></baseCount>
-    <baseCount></baseCount>
-    <baseCount></baseCount>
+    <UserInfo
+      :username="username"
+      :age="age"
+      :isSingle="isSingle"
+      :car="car"
+      :hobby="hobby"
+    ></UserInfo>
   </div>
 </template>
 
 <script>
-import baseCount from './components/BaseCount'
+import UserInfo from './components/UserInfo.vue'
 export default {
+  data() {
+    return {
+      username: '小帅',
+      age: 28,
+      isSingle: true,
+      car: {
+        brand: '宝马',
+      },
+      hobby: ['篮球', '足球', '羽毛球'],
+    }
+  },
   components: {
-    baseCount,
+    UserInfo,
   },
 }
 </script>
 
 <style>
 </style>
-
-
