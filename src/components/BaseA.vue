@@ -1,6 +1,6 @@
 <template>
   <div class="base-a">
-    我是A组件（接受方）
+    我是A组件
     <p>{{msg}}</p>  
   </div>
 </template>
@@ -11,6 +11,7 @@ export default {
   data() {
     return {
       msg: '',
+      
     }
   },
   created() {

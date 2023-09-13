@@ -1,26 +1,51 @@
 <template>
   <div class="base-b">
-    <div>我是B组件（发布方）</div>
-    <input placeholder="请输入message" class="new-todo" v-model="message" @keyup.enter="sendMsgFn"/>
+    <div>{{uName}}</div>
+    <input
+      placeholder="请输入要发送的消息"
+      class="new-todo"
+      v-model="messageSend"
+      @keyup.enter="sendMsgFn"
+    />
     <button @click="sendMsgFn">发送消息</button>
+
+    <ul>
+      <li v-for="(item, index) in msg" :key="index">
+        <span>{{ item }}</span>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import Bus from '../utils/EventBus'
+import Bus from "../utils/EventBus";
 export default {
-  data(){
-    return{
-      message:''
+  data() {
+    return {
+      messageSend: "",
+      msg:[],
+    };
+  },
+
+  props:{
+    uName:{
+      type:String
     }
   },
+
+  created() {
+    Bus.$on("sendMsg", (msg) => {
+      this.msg.push(msg);
+    });
+  },
+
   methods: {
     sendMsgFn() {
-      Bus.$emit('sendMsg', this.message)
-      this.message = ''
+      Bus.$emit("sendMsg", this.uName +':' +this.messageSend);
+      this.messageSend = "";
     },
   },
-}
+};
 </script>
 
 <style scoped>
