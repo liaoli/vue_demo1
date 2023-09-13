@@ -1,42 +1,28 @@
 <template>
-  <div class="app">
-    <div v-if="isShowEdit">
-      <input type="text" v-model="editValue" ref="inp" />
-      <button>确认</button>
-    </div>
-    <div v-else>
-      <span>{{ title }}</span>
-      <button @click="editFn">编辑</button>
-    </div>
+  <div>
+    <h1>自定义指令</h1>
+    <input v-focus ref="inp" type="text">
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      title: '大标题',
-      isShowEdit: false,
-      editValue: '',
+  // mounted () {
+  //   this.$refs.inp.focus()
+  // }
+  
+  // 2. 局部注册指令
+  directives: {
+    // 指令名：指令的配置项
+    focus: {
+      inserted (el) {
+        el.focus()
+      }
     }
-  },
-  methods: {
-    editFn() {
-      // 1.显示文本框
-      this.isShowEdit = true
-      // 2.让文本框聚焦 （会等dom更新完之后 立马执行nextTick中的回调函数）
-      this.$nextTick(() => {
-        console.log(this.$refs.inp)
-        this.$refs.inp.focus()
-      })
-
-      // setTimeout(() => {
-      //   this.$refs.inp.focus()
-      // }, 0)
-    },
-  },
+  }
 }
 </script>
 
 <style>
+
 </style>
