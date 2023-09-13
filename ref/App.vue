@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import BaseChart from './components/BaseChart.vue'
+import BaseChart from '../src/components/BaseChart.vue'
 export default {
   components:{
     BaseChart
