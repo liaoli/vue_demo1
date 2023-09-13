@@ -1,7 +1,8 @@
 <template>
   <div class="app">
     <BaseSelect
-      v-model="selectId"
+      :selectId="selectId"
+      @changeCity="selectId = $event"
     ></BaseSelect>
   </div>
 </template>
