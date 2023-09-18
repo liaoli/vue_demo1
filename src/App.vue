@@ -1,46 +1,39 @@
 <template>
   <div>
-    <div class="footer_wrap">
-      <a href="#/find">发现音乐</a>
-      <a href="#/my">我的音乐</a>
-      <a href="#/friend">朋友</a>
-    </div>
-    <div class="top">
-      <!-- 路由出口 → 匹配的组件所展示的位置 -->
-      <router-view></router-view>
-    </div>
+    <MyDialog>
+      <!-- 需要通过template标签包裹需要分发的结构，包成一个整体 -->
+      <template v-slot:head>
+        <div>我是大标题</div>
+      </template>
+      
+      <template v-slot:content>
+        <div>我是内容</div>
+      </template>
+
+      <template #footer>
+        <button>取消</button>
+        <button>确认</button>
+      </template>
+    </MyDialog>
   </div>
 </template>
 
 <script>
-export default {};
+import MyDialog from './components/MyDialog.vue'
+export default {
+  data () {
+    return {
+
+    }
+  },
+  components: {
+    MyDialog
+  }
+}
 </script>
 
 <style>
 body {
-  margin: 0;
-  padding: 0;
-}
-.footer_wrap {
-  position: relative;
-  left: 0;
-  top: 0;
-  display: flex;
-  width: 100%;
-  text-align: center;
-  background-color: #333;
-  color: #ccc;
-}
-.footer_wrap a {
-  flex: 1;
-  text-decoration: none;
-  padding: 20px 0;
-  line-height: 20px;
-  background-color: #333;
-  color: #ccc;
-  border: 1px solid black;
-}
-.footer_wrap a:hover {
-  background-color: #555;
+  background-color: #b3b3b3;
 }
 </style>
